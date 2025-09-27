@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import { doctors, languages, specialties } from "@/DATA/data";
 import { useNavigate } from "react-router-dom";
-
+import { motion } from "framer-motion";
 const DoctorSearchPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedSpecialty, setSelectedSpecialty] = useState("all");
@@ -54,9 +54,9 @@ const DoctorSearchPage = () => {
     <div className="min-h-screen bg-gradient-to-br pb-16 from-blue-50 via-white to-cyan-50">
       {/* Header */}
       <div className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            <h1 className="text-4xl font-bold text-gray-900 mb-2">
               Find Your Doctor
             </h1>
             <p className="text-gray-600">
@@ -127,16 +127,22 @@ const DoctorSearchPage = () => {
 
         {/* Doctor Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredDoctors.map((doctor) => {
+          {filteredDoctors.map((doctor, i) => {
             const SpecialtyIcon = getSpecialtyIcon(doctor.specialty);
 
             return (
-              <div
+              <motion.div
                 key={doctor.id}
+                initial={{ y: 100, opacity: 0 }}
+                whileInView={{
+                  y: 0,
+                  opacity: 100,
+                  transition: { duration: 1, delay: i * 0.1 },
+                }}
                 onClick={() => {
                   navigator("/doctor/dummyDoctor");
                 }}
-                className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group"
+                className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group cursor-pointer"
               >
                 {/* Card Header */}
                 <div className="p-6 pb-4">
@@ -241,7 +247,7 @@ const DoctorSearchPage = () => {
                     </button>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
