@@ -19,11 +19,16 @@ import {
   Globe,
   Zap,
   UserCheck,
+  User,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import FeatureGrid from "./FeaturesGrid";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const HealthcareHomepage = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const features = [
     {
@@ -169,14 +174,14 @@ const HealthcareHomepage = () => {
         animate={{ y: 0, opacity: 1, transition: { duration: 0.5 } }}
         className="bg-white shadow-lg sticky top-0 z-50"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
               <div className="bg-blue-600 p-2 rounded-lg">
                 <Heart className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-bold text-gray-800">
-                HealthConnect
+              <span className="text-base sm:text-xl font-bold text-gray-800">
+                AarogyaNabha
               </span>
             </div>
 
@@ -208,7 +213,7 @@ const HealthcareHomepage = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2"
+              className="hidden p-2"
             >
               {mobileMenuOpen ? (
                 <X className="w-6 h-6" />
@@ -216,8 +221,17 @@ const HealthcareHomepage = () => {
                 <Menu className="w-6 h-6" />
               )}
             </button>
-          </div>
 
+            <div
+              onClick={() => navigate("/profile")}
+              className="flex space-x-2 items-center cursor-pointer"
+            >
+              <span className="text-sm text-black font-semibold">Rajesh</span>
+              <div className="flex text-base items-center  justify-center  bg-primary text-white h-9 w-9 rounded-full ">
+                R
+              </div>
+            </div>
+          </div>
           {/* Mobile Menu */}
           {mobileMenuOpen && (
             <div className="md:hidden bg-white border-t">
@@ -250,9 +264,9 @@ const HealthcareHomepage = () => {
       </motion.nav>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-green-600 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
+      <section className="bg-white text-black sm:bg-gradient-to-r sm:from-blue-600 sm:to-green-600 sm:text-white py-20">
+        <div className="hidden sm:flex flex-col max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className=" text-center">
             <motion.h1
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 100, transition: { duration: 0.5 } }}
@@ -286,6 +300,21 @@ const HealthcareHomepage = () => {
               </motion.button>
             </div>
           </div>
+        </div>
+        <FeatureGrid />
+        <div className="sm:hidden flex w-full  mx-auto px-3 sm:px-3 lg:px-8 mt-8 flex-col sm:flex-row gap-4 justify-center ">
+          <motion.button className=" text-white px-4 py-4 w-auto  rounded-lg font-semibold bg-primary transition-colors flex items-center justify-center space-x-2">
+            <Smartphone className="w-5 h-5" />
+            <span>Download App</span>
+          </motion.button>
+
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="border-2 border-primary hover:border-primary/60 px-8 py-4 rounded-lg font-semibold hover:bg-white text-primary transition-colors"
+          >
+            Learn More
+          </motion.button>
         </div>
       </section>
 

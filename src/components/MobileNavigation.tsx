@@ -20,7 +20,7 @@ const MobileNavigation = () => {
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-border z-50 safe-area-bottom">
-      <div className="grid grid-cols-5 py-2">
+      <div className="grid grid-cols-4 py-2">
         {/* Home */}
         <Button
           onClick={() => navigate("/")}
@@ -69,16 +69,15 @@ const MobileNavigation = () => {
         </Button>
 
         {/* Profile */}
-        <Button
-          onClick={() => navigate("/profile")}
+        {/* <Button
           variant="ghost"
-          className={`flex-col gap-1 h-auto py-2 px-1 ${
+          className={`hidden sm:flex flex-col gap-1 h-auto py-2 px-1 ${
             isActive("/profile") ? "text-blue-500" : ""
           }`}
         >
           <User className="w-5 h-5" />
           <span className="text-xs">Profile</span>
-        </Button>
+        </Button> */}
       </div>
     </nav>
   );
