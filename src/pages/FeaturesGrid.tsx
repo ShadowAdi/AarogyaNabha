@@ -8,14 +8,14 @@ const FeatureGrid = () => {
     {
       title: "Medical Bot",
       subtitle: "",
-      image: "src/assets/mediBot.png",
+      image: "/mediBot.png",
       bgColor: "bg-gradient-to-br from-blue-400 to-blue-600",
       pathTo: "/chatbot",
     },
     {
       title: "Teleconsults",
       subtitle: "",
-      image: "src/assets/doctor.png",
+      image: "/doctor.png",
       bgColor: "bg-gradient-to-br from-green-400 to-green-600",
       pathTo: "/search",
     },
@@ -23,14 +23,14 @@ const FeatureGrid = () => {
       title: "Multi Lingual",
       subtitle: "",
       image:
-        'src/assets/translator.png',
+        '/translator.png',
       bgColor: "bg-gradient-to-br from-purple-400 to-purple-600",
       pathTo: "/",
     },
     {
       title: "Medicines",
       subtitle: "",
-      image: "src/assets/Medicines.png",
+      image: "/Medicines.png",
       bgColor: "bg-gradient-to-br from-orange-400 to-orange-600",
       pathTo: "/pharmacist",
     },
